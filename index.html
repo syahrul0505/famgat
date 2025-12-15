@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precision Outing 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0a0a0f;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .background-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 20%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 0;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .logo-glow {
+            font-size: 4em;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.5));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        h1 {
+            font-size: 3.5em;
+            font-weight: 800;
+            background: linear-gradient(135deg, #a855f7 0%, #6366f1 50%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .company-name {
+            font-size: 1.3em;
+            color: #94a3b8;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .subtitle {
+            font-size: 1.4em;
+            background: rgba(168, 85, 247, 0.1);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 12px 30px;
+            border-radius: 50px;
+            display: inline-block;
+            color: #c4b5fd;
+            font-weight: 600;
+        }
+
+        .content {
+            background: rgba(15, 15, 25, 0.7);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 50px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease;
+        }
+
+        .glass-card {
+            background: rgba(30, 30, 45, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 25px 0;
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(168, 85, 247, 0.5);
+            box-shadow: 0 20px 40px rgba(168, 85, 247, 0.2);
+        }
+
+        .greeting {
+            line-height: 1.9;
+            color: #cbd5e1;
+        }
+
+        .greeting p {
+            margin-bottom: 12px;
+        }
+
+        .greeting strong {
+            color: #fff;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.2) 0%, rgba(99, 102, 241, 0.2) 100%);
+            border: 2px solid rgba(168, 85, 247, 0.4);
+            border-radius: 25px;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(168, 85, 247, 0.1), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .highlight-box h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .big-text {
+            font-size: 2em;
+            font-weight: 700;
+            margin: 15px 0;
+            color: #c4b5fd;
+            position: relative;
+            z-index: 1;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 35px 0;
+        }
+
+        .info-card {
+            background: rgba(30, 30, 45, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .info-card:hover::before {
+            left: 100%;
+        }
+
+        .info-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(168, 85, 247, 0.5);
+            box-shadow: 0 20px 50px rgba(168, 85, 247, 0.3);
+        }
+
+        .info-card h3 {
+            color: #c4b5fd;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+        }
+
+        .icon {
+            font-size: 1.8em;
+            filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.5));
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-card ul li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #cbd5e1;
+            line-height: 1.7;
+        }
+
+        .info-card ul li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #a855f7;
+            font-size: 1.3em;
+        }
+
+        .agenda h2 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .day-section {
+            background: rgba(30, 30, 45, 0.4);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .day-title {
+            font-size: 1.6em;
+            color: #c4b5fd;
+            margin-bottom: 25px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(168, 85, 247, 0.3);
+        }
+
+        .agenda-item {
+            background: rgba(20, 20, 30, 0.6);
+            border: 1px solid rgba(99, 102, 241, 0.15);
+            border-left: 4px solid #a855f7;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .agenda-item:hover {
+            background: rgba(30, 30, 45, 0.8);
+            border-left-width: 6px;
+            padding-left: 25px;
+            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.2);
+        }
+
+        .agenda-time {
+            font-weight: 700;
+            color: #a855f7;
+            font-size: 1.15em;
+            margin-bottom: 8px;
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(168, 85, 247, 0.1);
+            border-radius: 8px;
+        }
+
+        .agenda-activity {
+            color: #cbd5e1;
+            font-size: 1.05em;
+            margin-top: 8px;
+        }
+
+        .party-highlight {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.3) 0%, rgba(168, 85, 247, 0.3) 100%);
+            border: 2px solid rgba(236, 72, 153, 0.5);
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 12px;
+            font-weight: 700;
+            text-align: center;
+            animation: glow 2s infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(236, 72, 153, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(236, 72, 153, 0.6);
+            }
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 700;
+            margin: 15px 10px;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(168, 85, 247, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(168, 85, 247, 0.5);
+            border-color: rgba(168, 85, 247, 0.8);
+        }
+
+        .cta-button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .footer p {
+            color: #94a3b8;
+            line-height: 1.8;
+            margin: 10px 0;
+        }
+
+        .footer h3 {
+            color: #c4b5fd;
+            margin: 20px 0;
+            font-size: 1.4em;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2em;
+            }
+            
+            .logo-glow {
+                font-size: 3em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+
+            .highlight-box h2 {
+                font-size: 1.8em;
+            }
+
+            .big-text {
+                font-size: 1.5em;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-gradient"></div>
+    <div class="grid-overlay"></div>
+    
+    <div class="container">
+        <header>
+            <div class="logo-glow">🚀</div>
+            <h1>OUTING 2025</h1>
+            <div class="company-name">PT. Precision Logistik International</div>
+            <div class="subtitle">Stronger Together with Precision</div>
+        </header>
+
+        <div class="content">
+            <div class="glass-card greeting">
+                <p><strong>Assalamualaikum wr wb</strong></p>
+                <p><strong>Selamat malam semua...</strong></p>
+                <p>Dengan hormat,</p>
+                <p>Dalam rangka mempererat kebersamaan serta meningkatkan kerjasama antar karyawan, maka PT. Precision Logistik International mengundang seluruh karyawan dan Management untuk mengikuti kegiatan Outing PT. Precision Logistik International dengan tema <strong>"Stronger Together with Precision"</strong>.</p>
+            </div>
+
+            <div class="highlight-box glass-card">
+                <h2>📅 Waktu & Lokasi</h2>
+                <div class="big-text">Sabtu - Minggu</div>
+                <div class="big-text">20 - 21 Desember 2025</div>
+                <p style="font-size: 1.4em; margin-top: 20px; color: #94a3b8;">📍 Caldera Citarik, Sukabumi</p>
+                <p style="font-size: 1.2em; margin-top: 10px; color: #94a3b8;">(Rafting Adventure)</p>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3><span class="icon">👕</span> Dress Code</h3>
+                    <ul>
+                        <li><strong>Berangkat:</strong> Seragam outing</li>
+                        <li><strong>Sabtu Malam:</strong> Color Party 🎨</li>
+                        <li>Hadiah untuk dresscode terbaik! 🏆</li>
+                        <li>⚠️ Sanksi bagi yang tidak sesuai</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3><span class="icon">🎒</span> Perlengkapan</h3>
+                    <ul>
+                        <li>❌ Tidak membawa koper</li>
+                        <li>Pakaian nyaman untuk rafting</li>
+                        <li>Pakaian ganti</li>
+                        <li>Obat-obatan pribadi</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3><span class="icon">⚠️</span> Penting!</h3>
+                    <p style="font-weight: 600; font-size: 1.1em; color: #fbbf24;">Barang berharga menjadi tanggung jawab pribadi</p>
+                    <p style="margin-top: 15px; color: #cbd5e1;">Harap simpan dengan baik HP, dompet, dan barang berharga lainnya selama kegiatan.</p>
+                </div>
+
+                <div class="info-card">
+                    <h3><span class="icon">🚐</span> Transportasi</h3>
+                    <p style="color: #cbd5e1;"><strong style="color: #fff;">Meeting Point:</strong> 05.00 - 06.00 WIB</p>
+                    <p style="margin-top: 10px; color: #cbd5e1;">Menggunakan ELF</p>
+                    <p style="margin-top: 10px; font-size: 0.95em; color: #94a3b8;">Mohon datang tepat waktu agar keberangkatan tidak terlambat</p>
+                </div>
+            </div>
+
+            <div class="agenda">
+                <h2>🗓️ Jadwal Kegiatan</h2>
+                
+                <div class="day-section">
+                    <div class="day-title">📅 HARI 1 - Sabtu, 20 Desember 2025</div>
+                    
+                    <div class="agenda-item">
+                        <div class="agenda-time">05.00 - 06.00</div>
+                        <div class="agenda-activity">Meeting Point & Keberangkatan (pergi menggunakan ELF)</div>
+                    </div>
+
+                    <div class="agenda-item">
+                        <div class="agenda-time">06.00 - 09.00</div>
+                        <div class="agenda-activity">Perjalanan ke Caldera Sukabumi 🚐</div>
+                    </div>
+
+                    <div class="agenda-item">
+                        <div class="agenda-time">09.00 - 10.00</div>
+                        <div class="agenda-activity">Welcome Drink, Snack, Kopi & Teh ☕</div>
+                    </div>
+
+                    <div class="agenda-item">
+                        <div class="agenda-time">10.00 - 12.00</div>
+                        <div class="agenda-activity">Fun Games (2 jam) 🎮</div>
+                    </div>
+
+                    <div class="agenda-item">
+                        <div class="agenda-time">12.00 - 14.00</div>
+                        <div class="agenda-activity">Lunch & Ishoma 🍽️</div>
+                    </div>
+
+                    <div class="agenda-item">
+                        <div class="agenda-time">14.00 - 15.00</div>
+                        <div class="agenda-activity">Check In 🏨</div>
+                    </div>
+
+                    <div class="agenda-item">
+                        <div class="agenda-time">15.00 - 17.00</div>
+                        <div class="agenda-activity">Paint Ball 🎯</div>
+                    </div>
+
+                    <div class="agenda-item">
+                        <div class="agenda-time">17.00 - 19.00</div>
+                        <div class="agenda-activity">Free Time ⏰</div>
+                    </div>
+
+                    <div class="agenda-item">
+                        <div class="agenda-time">19.00 - 20.00</div>
+                        <div class="agenda-activity">Dinner 🍛</div>
+                    </div>
+
+                    <div class="agenda-item" style="border-left-color: #ec4899;">
+                        <div class="agenda-time">20.00 - 22.30</div>
+                        <div class="agenda-activity">🎉 MALAM PUNCAK - COLOR PARTY 🎨</div>
+                        <div class="party-highlight">
+                            ⭐ Lomba Dresscode Terbaik! ⭐
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-section">
+                    <div class="day-title">📅 HARI 2 - Minggu, 21 Desember 2025</div>
+                    
+                    <div class="agenda-item">
+                        <div class="agenda-time">05.00 - 06.00</div>
+                        <div class="agenda-activity">Morning Call ⏰</div>
+                    </div>
+
+                    <div class="agenda-item">
+                        <div class="agenda-time">07.00 - 08.00</div>
+                        <div class="agenda-activity">Breakfast 🥞</div>
+                    </div>
+
+                    <div class="agenda-item" style="border-left-color: #06b6d4;">
+                        <div class="agenda-time">08.00 - 11.00</div>
+                        <div class="agenda-activity">🌊 ALIGATOR RAFTING 🚣</div>
+                        <div class="party-highlight" style="background: linear-gradient(135deg, rgba(6, 182, 212, 0.3) 0%, rgba(14, 165, 233, 0.3) 100%); border-color: rgba(6, 182, 212, 0.5);">
+                            🌊 Petualangan Seru di Sungai Citarik! 🌊
+                        </div>
+                    </div>
+
+                    <div class="agenda-item">
+                        <div class="agenda-time">11.00 - 12.30</div>
+                        <div class="agenda-activity">Lunch & Ishoma 🍽️</div>
+                    </div>
+
+                    <div class="agenda-item">
+                        <div class="agenda-time">12.30 - 15.30</div>
+                        <div class="agenda-activity">Perjalanan Kembali ke Jakarta (ELF) 🚐</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box glass-card">
+                <h2>🎯 Tujuan Kegiatan</h2>
+                <p style="font-size: 1.2em; line-height: 2; color: #cbd5e1; position: relative; z-index: 1;">
+                    ✓ Mempererat kebersamaan<br>
+                    ✓ Meningkatkan kerjasama antar karyawan<br>
+                    ✓ Team building & refreshing<br>
+                    ✓ Meningkatkan semangat kerja
+                </p>
+            </div>
+
+            <div class="button-container">
+                <a href="#" class="cta-button" onclick="alert('Silakan konfirmasi kehadiran Anda kepada Panitia Outing 2025'); return false;">
+                    <span>✅ Konfirmasi Kehadiran</span>
+                </a>
+                <a href="#" class="cta-button" onclick="alert('Informasi lebih lanjut akan dibagikan via grup WhatsApp'); return false;">
+                    <span>📱 Info Lebih Lanjut</span>
+                </a>
+            </div>
+
+            <div class="footer">
+                <p style="line-height: 1.8; color: #cbd5e1; margin-bottom: 25px;">
+                    Demikian undangan ini kami sampaikan. Besar harapan kami seluruh karyawan dapat berpartisipasi dalam kegiatan ini. Atas perhatian dan kehadirannya, kami ucapkan terima kasih.
+                </p>
+                <h3>Hormat Kami,</h3>
+                <p style="font-weight: 700; font-size: 1.2em; color: #c4b5fd;">Panitia Outing 2025</p>
+                <p style="margin-top: 25px; color: #a855f7; font-size: 1.2em; font-weight: 700;">
+                    🎉 See You There! 🎉
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
